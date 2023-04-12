@@ -5,35 +5,22 @@
 #include <Wt/WPushButton.h>
 #include <Wt/WText.h>
 
-class HelloApplication : public Wt::WApplication
-{
-public:
-    HelloApplication(const Wt::WEnvironment& env);
+// #include "containerwidget.h"
+// #include "templates.h"
+// #include "text.h"
+// #include "groupingwidgets.h"
+// #include "layout.h"
+// #include "dialogs.h"
+// #include "image.h"
+#include "registerform.h"
 
-private:
-    Wt::WLineEdit *nameEdit_;
-    Wt::WText *greeting_;
-};
-
-HelloApplication::HelloApplication(const Wt::WEnvironment& env)
-    : Wt::WApplication(env)
-{
-    setTitle("Hello world");
-
-    root()->addWidget(std::make_unique<Wt::WText>("Your name, please? "));
-    nameEdit_ = root()->addWidget(std::make_unique<Wt::WLineEdit>());
-    Wt::WPushButton *button = root()->addWidget(std::make_unique<Wt::WPushButton>("Greet me."));
-    root()->addWidget(std::make_unique<Wt::WBreak>());
-    greeting_ = root()->addWidget(std::make_unique<Wt::WText>());
-    auto greet = [this]{
-      greeting_->setText("Hello there, " + nameEdit_->text());
-    };
-    button->clicked().connect(greet);
-}
+using namespace std;
+using namespace Wt;
 
 int main(int argc, char **argv)
 {
-    return Wt::WRun(argc, argv, [](const Wt::WEnvironment& env) {
-      return std::make_unique<HelloApplication>(env);
+    return WRun(argc, argv, [&](const WEnvironment &env)
+    {
+        return make_unique<Application>(env);
     });
 }
