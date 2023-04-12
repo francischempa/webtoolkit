@@ -11,6 +11,7 @@
 #include <Wt/WLabel.h>
 #include <Wt/WDatePicker.h>
 #include <Wt/WTemplate.h>
+#include <example.h>
 
 using namespace Wt;
 using namespace std;
@@ -74,13 +75,9 @@ class Application: public WApplication
             {
                 auto wrapper = div->addWidget(make_unique<WContainerWidget>());
                 auto tp = wrapper->addWidget(make_unique<WTemplate>());
-
-auto s = R"(
-<div>
-</div>
-)";
-
-
+                tp->setTemplateText(html::example);
+                tp->bindWidget("heading", make_unique<WText>("THIS IS A HEADING!"));
+                tp->bindWidget("content", make_unique<WText>("this is the content!!!"));
             }
             
 
