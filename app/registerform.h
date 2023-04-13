@@ -26,6 +26,8 @@ class Application: public WApplication
     {
         root()->doJavaScript("document.head.innerHTML += '<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">';");
         useStyleSheet("css/style.css");
+        useStyleSheet("css/bootstrap.min.css");
+        require("js/bootstrap.bundle.min.js");
         {
             auto div = root()->addWidget(make_unique<WContainerWidget>());
             div->addNew<WText>("YourEvent");
@@ -76,8 +78,7 @@ class Application: public WApplication
                 auto wrapper = div->addWidget(make_unique<WContainerWidget>());
                 auto tp = wrapper->addWidget(make_unique<WTemplate>());
                 tp->setTemplateText(html::example);
-                tp->bindWidget("heading", make_unique<WText>("THIS IS A HEADING!"));
-                tp->bindWidget("content", make_unique<WText>("this is the content!!!"));
+                
             }
             
 

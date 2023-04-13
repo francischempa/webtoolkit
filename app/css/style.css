@@ -3,6 +3,16 @@ body{
     margin: 0;
 }
 
+.demo-content{
+    padding: 15px;
+    font-size: 18px;
+    background: #dbdfe5;
+    margin-bottom: 15px;
+}
+.demo-content.bg-alt{
+    background: #abb1b8;
+}
+
 /* .yellow-box {
     background-color: #ffffb4;
     border: 1px solid black;
